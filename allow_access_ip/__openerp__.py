@@ -21,10 +21,7 @@ User can not login if he has not assigned IP address from where he is accessing 
         'security/ir.model.access.csv',
         'views/allow_view.xml'
     ],
-    "test": [],
-    "js": [],
-    "css": [],
-    "qweb": [],
+    'images': ['static/description/splash-screen.png'],
     "installable": True,
     "auto_install": False,
 }
