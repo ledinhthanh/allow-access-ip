@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        <record id="view_users_form_inherit" model="ir.ui.view">
+            <field name="name">res.users.form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@string='Preferences']" position="after">
+                    <page string="Allow IP to Login">
+                        <group col="4">
+                            <field name="allow_all"/>
+                        </group>
+                        <group col="4" attrs="{'invisible': [('allow_all', '=', True)]}">
+                            <field name="allow_lines">
+                                <form string="Allow Lines">
+                                    <field name="ipaddress"/>
+                                </form>
+                                <tree string="Allow Lines" editable="bottom">
+                                    <field name="ipaddress"/>
+                                </tree>                                
+                            </field>
+                        </group>
+                    </page>
+                </xpath>   
+            </field>
+        </record>
+    </data>
+</openerp>
