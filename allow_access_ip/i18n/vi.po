@@ -38,8 +38,8 @@ msgid "The ipaddress must be unique !"
 msgstr "Địa chỉ IP không được trùng nhau"
 
 #. module: allow_access_ip
-#: code:addons/allow_access_ip/controllers/main.py:81
-#: code:addons/allow_access_ip/controllers/main.py:38
+#: code:addons/allow_access_ip/controllers/main.py:51
+#: code:addons/allow_access_ip/controllers/main.py:92
 #, python-format
 msgid "You are not allow access from this IP address"
 msgstr "Bạn không được đăng nhập từ IP này"
