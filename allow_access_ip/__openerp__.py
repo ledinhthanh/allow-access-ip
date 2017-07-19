@@ -15,8 +15,7 @@ User can not login if he has not assigned IP address from where he is accessing 
         """,
     "license": "",
     "depends": [
-        "base",
-        "web"
+        "base"
     ],
     "demo": [],
     'data': [
