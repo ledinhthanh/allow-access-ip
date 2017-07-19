@@ -1,14 +1,14 @@
 # coding: utf-8
 {
-    "name": "Allow IP to Login odoo",
+    "name": "Restrict Site Access by IP Address",
     "version": "8.0.0.1.6",
-    "author": "mrthanh.ledinh@outlook.com",
-    "category": "Tools",
+    "author": "ThanhLd",
+    "category": "Base",
     "summary": "User can not login if he has not assigned IP address from where he is accessing Odoo",
     "website": "www.retech.com.vn",
     'description':
         """
-Allow IP to Login odoo.
+Restrict Site Access by IP Address.
 ========================
 
 User can not login if he has not assigned IP address from where he is accessing Odoo.
