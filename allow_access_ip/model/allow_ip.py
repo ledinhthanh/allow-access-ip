@@ -29,6 +29,6 @@ class res_users(osv.osv):
     _inherit = "res.users"
     _name = "res.users"
     _columns = {
-        'allow_lines': fields.one2many('res.users.allow', 'user_id', 'Allow IP lines'),
+        'allow_lines': fields.one2many('res.users.allow', 'user_id', 'Allow IP'),
         'allow_all': fields.boolean('Allow All', default=True)
     }

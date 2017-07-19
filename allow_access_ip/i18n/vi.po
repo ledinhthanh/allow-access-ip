@@ -17,29 +17,29 @@ msgstr ""
 "Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#. module: allow_ip
+#. module: allow_access_ip
 #: field:res.users,allow_all:0
 msgid "Allow All"
 msgstr "Không giới hạn"
 
-#. module: allow_ip
+#. module: allow_access_ip
 #: field:res.users,allow_lines:0
-msgid "Allow IP lines"
+msgid "Allow IP"
 msgstr "Các địa chỉ IP cho phép"
 
-#. module: allow_ip
-#: view:res.users:allow_ip.view_users_form_inherit
+#. module: allow_access_ip
+#: view:res.users:allow_access_ip.view_users_form_inherit
 msgid "Allow IP to Login"
 msgstr "Giới hạn IP đăng nhập"
 
-#. module: allow_ip
+#. module: allow_access_ip
 #: sql_constraint:res.users.allow:0
 msgid "The ipaddress must be unique !"
 msgstr "Địa chỉ IP không được trùng nhau"
 
-#. module: allow_ip
-#: code:addons/allow_ip/controllers/main.py:81
-#: code:addons/allow_ip/controllers/main.py:38
+#. module: allow_access_ip
+#: code:addons/allow_access_ip/controllers/main.py:81
+#: code:addons/allow_access_ip/controllers/main.py:38
 #, python-format
 msgid "You are not allow access from this IP address"
 msgstr "Bạn không được đăng nhập từ IP này"
