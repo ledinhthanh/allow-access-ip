@@ -3,7 +3,7 @@
     "name": "Restrict Site Access by IP Address",
     "version": "8.0.0.1.6",
     "author": "mrthanh.ledinh@outlook.com",
-    "category": "Base",
+    "category": "Tools",
     "summary": "User can not login if he has not assigned IP address from where he is accessing Odoo",
     "website": "www.retech.com.vn",
     'description':
