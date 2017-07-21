@@ -1,2 +1,2 @@
 # coding: utf-8
-from . import model , controllers , allowrequest
+from . import model , controllers , main

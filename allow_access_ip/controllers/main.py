@@ -1,7 +1,7 @@
-from odoo.addons.web.controllers.main import *
-from odoo import api, http, SUPERUSER_ID
+from openerp.addons.web.controllers.main import *
+from openerp import api, http, SUPERUSER_ID
 import threading
-from odoo.tools.translate import _
+from openerp.tools.translate import _
 _logger = logging.getLogger(__name__)
 
 class AllowHome(Home):
@@ -11,7 +11,7 @@ class AllowHome(Home):
         return werkzeug.utils.redirect(redirect, 303)
     # check ip address valid
     def valid_ipaddress(self, _request,login=None):
-        registry = odoo.registry(request.session.db)         
+        registry = openerp.registry(request.session.db)         
         with registry.cursor() as cr:
             env = api.Environment(cr, SUPERUSER_ID,{})
             if login != None:
@@ -45,18 +45,22 @@ class AllowHome(Home):
             ip_valid = self.valid_ipaddress(request)
             if not ip_valid:
                 _logger.error("Request from invalid IP address")
-                self.logout()
-                values = {}
+                self.logout() 
                 values = request.params.copy()        
-                values['error'] = _("You are not allow access from this IP address")
+                error = 'You are not allow access from this IP address'       
+                values['error'] = _(error)
                 return request.render('web.login', values)
         if kw.get('redirect'):
             return werkzeug.utils.redirect(kw.get('redirect'), 303)
 
         request.uid = request.session.uid
-        context = request.env['ir.http'].webclient_rendering_context()
+        menu_data = request.registry['ir.ui.menu'].load_menus(request.cr, request.uid, request.debug, context=request.context)
+        return request.render('web.webclient_bootstrap', qcontext={'menu_data': menu_data, 'db_info': json.dumps(db_info())})
 
-        return request.render('web.webclient_bootstrap', qcontext=context)
+    @http.route('/web/dbredirect', type='http', auth="none")
+    def web_db_redirect(self, redirect='/', **kw):
+        ensure_db()
+        return werkzeug.utils.redirect(redirect, 303)
 
     @http.route('/web/login', type='http', auth="none")
     def web_login(self, redirect=None, **kw):
@@ -66,12 +70,12 @@ class AllowHome(Home):
             return http.redirect_with_hash(redirect)
 
         if not request.uid:
-            request.uid = odoo.SUPERUSER_ID
+            request.uid = openerp.SUPERUSER_ID
 
         values = request.params.copy()
         try:
             values['databases'] = http.db_list()
-        except odoo.exceptions.AccessDenied:
+        except openerp.exceptions.AccessDenied:
             values['databases'] = None
 
         if request.httprequest.method == 'POST':
@@ -91,3 +95,5 @@ class AllowHome(Home):
                 values = {}
                 values['error'] = _("You are not allow access from this IP address")
         return request.render('web.login', values)
+
+    
